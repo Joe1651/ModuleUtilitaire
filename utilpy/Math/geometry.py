@@ -12,7 +12,7 @@ class Rectangle:
     # PROPRIÉTÉS
     @property
     def diagonale(self):
-        return (self.__longueur ** 2 * self.__largeur ** 2) ** 0.5
+        return (self.__longueur ** 2 + self.__largeur ** 2) ** 0.5
 
     # MÉTHODES
     def calculer_aire(self):
