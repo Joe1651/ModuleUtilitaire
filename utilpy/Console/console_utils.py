@@ -210,6 +210,20 @@ def lire_réel(question: str) -> float:
     return réel
 
 
+def lire_réel_positif(question: str) -> float:
+    while True:
+        # PMC lire_entier_positif(), tu devrais réutiliser lire_entier() et valider après
+        saisie = input(question)
+        try:
+            réel_positif = float(saisie)
+            if float(réel_positif) >= 0: break
+        except ValueError:
+            pass
+        colored_print("Veuillez saisir un réel positif.", "red", attributs=["bold"])
+
+    return réel_positif
+
+
 # important de mettre une garde d'importation
 if __name__ == '__main__':
     print(
