@@ -24,7 +24,8 @@ class Forme(ABC):
         return self.__str__()
 
 
-class Carré(Forme):
+class Carré(Forme):  # Pour créer une nouvelle classe à partir de la super classe, right click + intégrer abstract
+    # methods
     def __init__(self):
         pass
 
@@ -40,7 +41,11 @@ class Carré(Forme):
 
 class Cercle(Forme):
     def __init__(self, rayon=1):
-        self.rayon = rayon
+        self.__rayon = rayon
+
+    @property
+    def rayon(self):
+        return self.__rayon
 
     def aire(self):
         return math.pi * self.rayon ** 2
@@ -54,15 +59,6 @@ class Cercle(Forme):
 
 
 class Rectangle(Forme):
-    @classmethod
-    def créer_rectangle_or(cls):
-        nb_or = (1 + math.sqrt(5)) / 2
-        return Rectangle(1, nb_or)
-
-    @classmethod
-    def créer_rect_construction(cls):
-        return Rectangle(3, 4)
-
     # CONSTRUCTEUR
     def __init__(self, longueur: float, largeur: float):
         if longueur <= 0 or largeur <= 0:
@@ -79,6 +75,23 @@ class Rectangle(Forme):
     @property
     def aire(self):
         return self.__largeur * self.__longueur
+
+    @classmethod
+    def créer_rectangle_or(cls):
+        nb_or = (1 + math.sqrt(5)) / 2
+        return Rectangle(1, nb_or)
+
+    @classmethod
+    def créer_rect_construction(cls):
+        return Rectangle(3, 4)
+
+    @classmethod
+    def from_cercle_extérieur(cls, cercle: Cercle):
+        return cls(cercle.rayon * 2, cercle.rayon * 2)
+
+    @classmethod
+    def from_cercle_intérieur(cls, cercle: Cercle):
+        return cls(2 * cercle.rayon * math.sin(45), 2 * cercle.rayon * math.sin(45))
 
     def périmètre(self):
         return 2 * self.__largeur + 2 * self.__longueur
