@@ -24,7 +24,21 @@ class Forme(ABC):
         return self.__str__()
 
 
-class Cercle(Forme, ABC):
+class Carré(Forme):
+    def __init__(self):
+        pass
+
+    def aire(self):
+        pass
+
+    def périmètre(self):
+        pass
+
+    def __str__(self):
+        pass
+
+
+class Cercle(Forme):
     def __init__(self, rayon=1):
         self.rayon = rayon
 
@@ -39,7 +53,7 @@ class Cercle(Forme, ABC):
                 f"{self.périmètre()}m")
 
 
-class Rectangle(Forme, ABC):
+class Rectangle(Forme):
     @classmethod
     def créer_rectangle_or(cls):
         nb_or = (1 + math.sqrt(5)) / 2
