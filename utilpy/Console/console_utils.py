@@ -96,7 +96,8 @@ def lire_chaine_taille_intervalle(question: str, taille_min: int, taille_max: in
         chaine = input(question).strip()
         if taille_min <= len(chaine) <= taille_max:
             break
-        colored_print(f"Veuillez saisir une réponse entre {taille_min} et {taille_max} caractères.", "red", attributs=["bold"])
+        colored_print(f"Veuillez saisir une réponse entre {taille_min} et {taille_max} caractères.", "red",
+                      attributs=["bold"])
 
     return chaine
 
@@ -169,6 +170,18 @@ def lire_entier_intervalle(question: str, minimum: int, maximum: int) -> int:
         except ValueError:
             pass
         colored_print(f"Veuillez saisir un entier entre {minimum} et {maximum}.", "red", attributs=["bold"])
+    return entier
+
+
+def lire_entier_longueur_spécifique(question: str, longueur: int):
+    while True:
+        saisie = input(question)
+        try:
+            entier = int(saisie)
+            if len(saisie) == longueur: break
+        except ValueError:
+            pass
+        colored_print(f"Veuillez saisir un entier de longueur {longueur}.", "red", attributs=["bold"])
     return entier
 
 
