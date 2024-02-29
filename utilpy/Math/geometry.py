@@ -1,7 +1,7 @@
 import math
 from abc import abstractmethod, ABC
 from typing import Self
-from PIL.Image import Image
+from PIL import Image, ImageDraw
 
 from Console.console_utils import *
 
@@ -16,7 +16,7 @@ class Forme(ABC):
         pass
 
     @abstractmethod
-    def dessiner(self, image: Image):
+    def dessiner(self, image: Image, top_x: int, top_y: int):
         pass
 
     @abstractmethod
@@ -47,7 +47,7 @@ class Cercle(Forme):
     def aire(self):
         return math.pi * self.rayon ** 2
 
-    def dessiner(self, image):
+    def dessiner(self, image, top_x, top_y):
         pass
 
     def périmètre(self):
@@ -97,8 +97,9 @@ class Rectangle(Forme):
     def from_rectangle_rotation(cls, rectangle: Self) -> Self:
         return cls(longueur=rectangle.largeur, largeur=rectangle.longueur)
 
-    def dessiner(self, image):
-        pass
+    def dessiner(self, image, top_x, top_y):
+        forme: ImageDraw = ImageDraw.Draw(image)
+        forme.rectangle((top_x, top_y, top_x + self.largeur, top_y + self.longueur), fill="#FF0000", outline="green")
 
     def périmètre(self):
         return 2 * self.largeur + 2 * self.longueur

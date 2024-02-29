@@ -8,13 +8,29 @@ import os
 # Au besoin, utilisez l'onglet "Structure" de PyCharm pour
 # voir facilement la liste des fonctions
 
-import termcolor  # Test salut
+from termcolor import termcolor, colored  # Test salut
 
 os.environ["FORCE_COLOR"] = "1"
 
 
 def colored_print(message: str, color: str = None, surlignage: str = None, attributs: list = None):  # Salut
     print(termcolor.colored(message, color, on_color=surlignage, attrs=attributs))
+
+
+def color_text(text: str, color: str, attrs: list = None):
+    """
+    Function to return a colored and styled string.
+
+    Args: text (str): The text to be colored. color (str): The color to apply to the text. Can be one of: 'grey',
+    'red', 'green', 'yellow', 'blue', 'magenta', 'cyan', 'white'. attrs (list): A list of style attributes. Can
+    include 'bold', 'dark', 'underline', 'blink', 'reverse', 'concealed'.
+
+    Returns:
+        str: The colored and styled string.
+    """
+    if attrs is None:
+        attrs = []
+    return colored(text, color, attrs=attrs)
 
 
 def confirmer(question: str = "Voulez-vous confirmer (O/N) ?") -> bool:
