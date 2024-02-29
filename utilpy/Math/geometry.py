@@ -1,6 +1,7 @@
 import math
 from abc import abstractmethod, ABC
 from typing import Self
+from PIL.Image import Image
 
 from Console.console_utils import *
 
@@ -15,6 +16,10 @@ class Forme(ABC):
         pass
 
     @abstractmethod
+    def dessiner(self, image: Image):
+        pass
+
+    @abstractmethod
     def périmètre(self):
         pass
 
@@ -26,24 +31,14 @@ class Forme(ABC):
         return self.__str__()
 
 
-class Carré(Forme):  # Pour créer une nouvelle classe à partir de la super classe, right click + intégrer abstract
-    # methods
-    def __init__(self):
-        pass
-
-    def aire(self):
-        pass
-
-    def périmètre(self):
-        pass
-
-    def __str__(self):
-        pass
-
-
 class Cercle(Forme):
-    def __init__(self, rayon=1):
+    def __init__(self, rayon=1.0):
         self.__rayon = rayon
+
+    @classmethod
+    def from_rectangle(cls, rectangle: "Rectangle"):
+        côté_min = min(rectangle.largeur, rectangle.longueur)
+        return cls(côté_min)
 
     @property
     def rayon(self):
@@ -51,6 +46,9 @@ class Cercle(Forme):
 
     def aire(self):
         return math.pi * self.rayon ** 2
+
+    def dessiner(self, image):
+        pass
 
     def périmètre(self):
         return 2 * math.pi * self.rayon
@@ -65,18 +63,18 @@ class Rectangle(Forme):
     def __init__(self, longueur: float, largeur: float):
         if longueur <= 0 or largeur <= 0:
             raise ValueError("Les dimensions du rectangles doivent être supérieure à 0.")
-        self.__longueur = longueur
-        self.__largeur = largeur
+        self.longueur = longueur
+        self.largeur = largeur
 
     # PROPRIÉTÉS
     @property
     def diagonale(self):
-        return (self.__longueur ** 2 + self.__largeur ** 2) ** 0.5
+        return (self.longueur ** 2 + self.largeur ** 2) ** 0.5
 
     # MÉTHODES
     @property
     def aire(self):
-        return self.__largeur * self.__longueur
+        return self.largeur * self.longueur
 
     @classmethod
     def créer_rectangle_or(cls):
@@ -99,16 +97,48 @@ class Rectangle(Forme):
     def from_rectangle_rotation(cls, rectangle: Self) -> Self:
         return cls(longueur=rectangle.largeur, largeur=rectangle.longueur)
 
+    def dessiner(self, image):
+        pass
+
     def périmètre(self):
-        return 2 * self.__largeur + 2 * self.__longueur
+        return 2 * self.largeur + 2 * self.longueur
 
     def obtenir_description(self):
-        return (f"Rectangle de {self.__largeur} de largeur et de {self.__longueur} de longueur, pour une aire de "
+        return (f"Rectangle de {self.largeur} de largeur et de {self.longueur} de longueur, pour une aire de "
                 f"{self.aire}.")
 
     # OVERRIDES
     def __str__(self):
         return self.obtenir_description()
+
+
+class Carré(Rectangle):
+    """"""
+
+    # VARIABLES DE CLASSE
+    # aucune
+
+    # CONSTRUCTEUR
+    def __init__(self, côté: float):
+        super().__init__(largeur=côté, longueur=côté)
+
+    # MÉTHODES DE CLASSE
+
+    # PROPRIÉTÉS
+
+    # MÉTHODES (publiques et ensuite privées)
+    def aire(self):
+        pass
+
+    def périmètre(self):
+        super().périmètre()
+
+    def obtenir_description(self):
+        super().obtenir_description()
+
+    # MÉTHODES SUPPLANTÉES / OVERRIDES
+    def __str__(self):
+        super().__str__()
 
 
 if __name__ == '__main__':
