@@ -1,5 +1,7 @@
 import math
 from abc import abstractmethod, ABC
+from typing import Self
+
 from Console.console_utils import *
 
 
@@ -92,6 +94,10 @@ class Rectangle(Forme):
     @classmethod
     def from_cercle_intérieur(cls, cercle: Cercle):
         return cls(2 * cercle.rayon * math.sin(45), 2 * cercle.rayon * math.sin(45))
+
+    @classmethod
+    def from_rectangle_rotation(cls, rectangle: Self) -> Self:
+        return cls(longueur=rectangle.largeur, largeur=rectangle.longueur)
 
     def périmètre(self):
         return 2 * self.__largeur + 2 * self.__longueur
