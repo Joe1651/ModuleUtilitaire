@@ -1,7 +1,7 @@
 # Module contenant les fonctions utilitaires qui
 # interagissent avec la console (input, print)
 import os
-
+from os import system, name
 # Essayez de garder les fonctions en ordre alphabétique
 # pour que ce soit plus simple pour vous et pour vous retrouver
 
@@ -11,6 +11,13 @@ import os
 from termcolor import termcolor, colored  # Test salut
 
 os.environ["FORCE_COLOR"] = "1"
+
+
+def clear():
+    if name == 'nt':
+        _ = system('cls')
+    else:
+        _ = system('clear')
 
 
 def colored_print(message: str, color: str = None, surlignage: str = None, attributs: list = None):  # Salut
