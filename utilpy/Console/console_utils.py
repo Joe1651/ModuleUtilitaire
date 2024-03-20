@@ -163,6 +163,20 @@ def lire_entier_positif(question: str) -> int:
     return entier_positif
 
 
+def lire_entier_strictement_positif(question: str) -> int:
+    while True:
+        # PMC lire_entier_positif(), tu devrais réutiliser lire_entier() et valider après
+        saisie = input(question)
+        try:
+            entier_positif = int(saisie)
+            if int(entier_positif) > 0: break
+        except ValueError:
+            pass
+        colored_print("Veuillez saisir un entier supérieur à 0.", "red", attributs=["bold"])
+
+    return entier_positif
+
+
 def lire_entier_impair(question: str) -> int:
     while True:
         saisie = input(question)
