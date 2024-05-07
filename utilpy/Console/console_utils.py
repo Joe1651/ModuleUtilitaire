@@ -28,6 +28,11 @@ def confirmer(question: str = "Voulez-vous confirmer (O/N) ?") -> bool:
     elif réponse.upper() == "N": return False
 
 
+def dump_dans_fichier(nom_fichier, to_dump):
+    with open(f"{nom_fichier}.txt", "w") as f:
+        f.write(str(to_dump))
+
+
 def lire_caractère(question: str) -> str:
     while True:
         saisie = input(question)
