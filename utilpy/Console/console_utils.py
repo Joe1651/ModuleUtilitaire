@@ -55,6 +55,10 @@ def confirmer(question: str = "Voulez-vous confirmer (O/N) ?") -> bool:
 
 
 def dump_dans_fichier(nom_fichier, to_dump):
+    """
+    :param nom_fichier: Nom du fichier dans lequel écrire (sans le ".txt")
+    :param to_dump: Objet à dump dans le fichier
+    """
     with open(f"{nom_fichier}.txt", "w") as f:
         f.write(str(to_dump))
 
