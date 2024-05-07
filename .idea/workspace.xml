@@ -4,8 +4,8 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="a7e8d4f9-c9b9-4f92-81be-9610c5e9ef00" name="Changes" comment="Regex">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+    <list default="true" id="a7e8d4f9-c9b9-4f92-81be-9610c5e9ef00" name="Changes" comment="description dump_dans_fichier">
+      <change beforePath="$PROJECT_DIR$/utilpy/Console/console_utils.py" beforeDir="false" afterPath="$PROJECT_DIR$/utilpy/Console/console_utils.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -20,8 +20,21 @@
     </option>
   </component>
   <component name="Git.Settings">
+    <option name="PUSH_AUTO_UPDATE" value="true" />
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
+  <component name="GitHubPullRequestSearchHistory"><![CDATA[{
+  "lastFilter": {
+    "state": "OPEN",
+    "assignee": "Joe1651"
+  }
+}]]></component>
+  <component name="GithubPullRequestsUISettings"><![CDATA[{
+  "selectedUrlAndAccountId": {
+    "url": "https://github.com/Joe1651/ModuleUtilitaire.git",
+    "accountId": "d575705d-458b-4831-a224-ca100c8e88fd"
+  }
+}]]></component>
   <component name="ProjectColorInfo">{
   &quot;customColor&quot;: &quot;&quot;,
   &quot;associatedIndex&quot;: 4
@@ -74,7 +87,7 @@
   <component name="SharedIndexes">
     <attachedChunks>
       <set>
-        <option value="bundled-python-sdk-d68999036c7f-d3b881c8e49f-com.jetbrains.pycharm.community.sharedIndexes.bundled-PC-233.14475.56" />
+        <option value="bundled-python-sdk-0509580d9d50-746f403e7f0c-com.jetbrains.pycharm.community.sharedIndexes.bundled-PC-241.14494.241" />
       </set>
     </attachedChunks>
   </component>
@@ -103,7 +116,23 @@
       <option name="project" value="LOCAL" />
       <updated>1710295544890</updated>
     </task>
-    <option name="localTasksCounter" value="3" />
+    <task id="LOCAL-00003" summary="dump_dans_fichier">
+      <option name="closed" value="true" />
+      <created>1715105580254</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1715105580254</updated>
+    </task>
+    <task id="LOCAL-00004" summary="description dump_dans_fichier">
+      <option name="closed" value="true" />
+      <created>1715105662992</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1715105662992</updated>
+    </task>
+    <option name="localTasksCounter" value="5" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -119,6 +148,8 @@
   </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="Regex" />
-    <option name="LAST_COMMIT_MESSAGE" value="Regex" />
+    <MESSAGE value="dump_dans_fichier" />
+    <MESSAGE value="description dump_dans_fichier" />
+    <option name="LAST_COMMIT_MESSAGE" value="description dump_dans_fichier" />
   </component>
 </project>
