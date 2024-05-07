@@ -54,13 +54,14 @@ def confirmer(question: str = "Voulez-vous confirmer (O/N) ?") -> bool:
         return False
 
 
-def dump_dans_fichier(nom_fichier, to_dump, path_to_dump):
+def dump_dans_fichier(nom_fichier, to_dump, path_to_dump, mode="w"):
     """
     :param nom_fichier: Nom du fichier dans lequel écrire (sans le ".txt")
     :param to_dump: Objet à dump dans le fichier
     :param path_to_dump: Path du fichier dans lequel écrire
+    :param mode: Mode dans lequel ouvrir le fichier (ex: "w", "a", "r", ...)
     """
-    with open(f"{nom_fichier}.txt", "w") as f:
+    with open(f"{nom_fichier}.txt", mode) as f:
         os.chdir(path_to_dump)
         f.write(str(to_dump))
 
